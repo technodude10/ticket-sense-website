@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+    <form action="/register" method="post">
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-50" id="link" name="link" placeholder="Ticket Booking Link" type="text">
+        </div>
+        <div class="mb-3">
+            <input class="form-control mx-auto w-50" id="filmname" name="filmname" placeholder="Film Name" type="text">
+        </div>
+        <div class="mb-3">
+            <input type="text" class="date form-control mx-auto w-auto " placeholder="Start Date" />
+        </div>
+        <button class="btn btn-primary" placeholder="Start Date" type="submit">Enable Ticket Sense</button>
+    </form>
+
+    <script type="text/javascript">
+        $(".date").datepicker({
+          format: "dd-mm-yyyy",
+        });
+      </script>
+{% endblock %}

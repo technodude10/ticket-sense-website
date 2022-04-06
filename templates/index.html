@@ -1,18 +1,18 @@
 {% extends "layout.html" %}
 
 {% block title %}
-    Register
+    Ticket Sense
 {% endblock %}
 
 {% block main %}
-    <form action="/register" method="post">
+    <form action="/" method="post">
         <div class="mb-5">
             <p class="text-white">Copy paste the link of your preferred theater from <a href='https://in.bookmyshow.com/' target="_blank" rel="noopener noreferrer" >BookMyShow</a> or <a href='https://www.ticketnew.com/' target="_blank" rel="noopener noreferrer" >TicketNew</a></p>
             <input id="inputbox" autocomplete="off" autofocus class="form-control mx-auto w-75 text-white bg-dark" id="link" name="link" placeholder="Ticket Booking Link" type="text">
         </div>
         <div class="mb-5">
             <p class="text-white">Type the name of the movie you need notification for</p>
-            <input id="inputbox" class="form-control mx-auto w-75 text-white bg-dark" id="filmname" name="filmname" placeholder="Film Name" type="text">
+            <input id="inputbox" autocomplete="off" class="form-control mx-auto w-75 text-white bg-dark" id="filmname" name="filmname" placeholder="Film Name" type="text">
         </div>
 
         <p class="text-white">Select the duration for which Ticket Sense should work</p>

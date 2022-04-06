@@ -307,3 +307,4 @@ node_modules/vanillajs-datepicker/test/unit/_setup.js
 node_modules/vanillajs-datepicker/test/unit/Datepicker.js
 node_modules/vanillajs-datepicker/test/unit/DateRangePicker.js
 package-lock.json
+ticketsense.db

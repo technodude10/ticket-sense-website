@@ -7,20 +7,33 @@
 {% block main %}
     <form action="/register" method="post">
         <div class="mb-3">
-            <input autocomplete="off" autofocus class="form-control mx-auto w-50" id="link" name="link" placeholder="Ticket Booking Link" type="text">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-50 text-white bg-dark" id="link" name="link" placeholder="Ticket Booking Link" type="text">
         </div>
         <div class="mb-3">
-            <input class="form-control mx-auto w-50" id="filmname" name="filmname" placeholder="Film Name" type="text">
+            <input class="form-control mx-auto w-50 text-white bg-dark" id="filmname" name="filmname" placeholder="Film Name" type="text">
         </div>
-        <div class="mb-3">
-            <input type="text" class="date form-control mx-auto w-auto " placeholder="Start Date" />
+
+        <div class="row mb-5 w-50 mx-auto " id="foo" >
+            <div class="col">
+                <input autocomplete="off" class="date form-control text-white bg-dark" id="startdate" type="text" name="start" placeholder="Start Date">
+            </div>
+            <div class="col">
+                <input autocomplete="off" class="date form-control text-white bg-dark" id="enddate" name="end" placeholder="End Date" type="text">  
+            </div>
         </div>
+
         <button class="btn btn-primary" placeholder="Start Date" type="submit">Enable Ticket Sense</button>
+
     </form>
 
-    <script type="text/javascript">
-        $(".date").datepicker({
-          format: "dd-mm-yyyy",
+    
+
+    <script>
+        const elem = document.getElementById('foo');
+        const datepicker = new DateRangePicker(elem, {
+        format: 'dd/mm/yyyy',
+        todayHighlight: true,
         });
-      </script>
+    </script>
+
 {% endblock %}

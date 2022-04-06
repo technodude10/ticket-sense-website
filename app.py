@@ -4,7 +4,7 @@ from flask import Flask, redirect, render_template, request, session
 
 app = Flask(__name__)
 
-cur = sqlite3.connect('ticketsense.db')
+# cur = sqlite3.connect('ticketsense.db')
 
 
 @app.route("/", methods=["GET", "POST"])
@@ -28,9 +28,9 @@ def index():
         print(enddate)
         print((link.rsplit('/'))[2])
 
-        db = cur.cursor()
-        db.execute("INSERT INTO ticketsensedata (link, name, startday, endday) VALUES (?, ?, ?, ?)", newlink[0], newfilmname[0], startdate[0], enddate[0])
-        cur.commit()
+        # db = cur.cursor()
+        # db.execute("INSERT INTO ticketsensedata (link, name, startday, endday) VALUES (?, ?, ?, ?)", newlink[0], newfilmname[0], startdate[0], enddate[0])
+        # cur.commit()
 
         return redirect("/submitted")
     else:

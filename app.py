@@ -31,19 +31,17 @@ def index():
         start = request.form.get("start")
         end = request.form.get("end")
 
-        print(start)
-        print(end)
-
         newlink = link.rsplit('/', 1)
         newfilmname = filmname.rsplit(' ', 1)
         startdate = start.rsplit('/')
         enddate = end.rsplit('/')
+
         print((link.rsplit('/'))[2])
 
         db_insert("INSERT INTO ticketsensedata (link, name, startday, startmonth, startyear, endday, endmonth, endyear) VALUES (?, ?, ?, ?, ?, ? ,?, ?)", 
                   (newlink[0], newfilmname[0], startdate[0], startdate[1], startdate[2], enddate[0], enddate[1], enddate[2]))
         
-        
+    
         p = db_select("SELECT * FROM ticketsensedata")
         
 

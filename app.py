@@ -10,6 +10,18 @@ def db_connection():
     db.row_factory = sqlite3.Row
     return db
 
+def db_insert(arg1, arg2):
+    conn = db_connection()
+    db = conn.cursor()
+    db.execute(arg1, arg2)
+    conn.commit()
+    conn.close()
+
+def db_select(arg1, arg2=''):
+    db = db_connection()
+    out = db.execute(arg1, arg2)
+    return out.fetchall()
+
 
 @app.route("/", methods=["GET", "POST"])
 def index():
@@ -28,19 +40,15 @@ def index():
         enddate = end.rsplit('/')
         print((link.rsplit('/'))[2])
 
-        conn = db_connection()
-        db = conn.cursor()
-        db.execute("INSERT INTO ticketsensedata (link, name, startday, startmonth, startyear, endday, endmonth, endyear) VALUES (?, ?, ?, ?, ?, ? ,?, ?)", 
+        db_insert("INSERT INTO ticketsensedata (link, name, startday, startmonth, startyear, endday, endmonth, endyear) VALUES (?, ?, ?, ?, ?, ? ,?, ?)", 
                   (newlink[0], newfilmname[0], startdate[0], startdate[1], startdate[2], enddate[0], enddate[1], enddate[2]))
-        conn.commit()
-        conn.close()
-
-        db = db_connection()
-        p = db.execute("SELECT * FROM ticketsensedata").fetchall()
-        db.close()
+        
+        
+        p = db_select("SELECT * FROM ticketsensedata")
+        
 
         for i in p:
-            print(i["name"])
+            print(i["link"])
 
         return redirect("/submitted")
 
